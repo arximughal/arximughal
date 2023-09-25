@@ -1,0 +1,122 @@
+---
+title: Deploy Node.js Production Application on Ubuntu 22.04 with PM2
+date: '2023-02-14'
+tags: ['node.js', 'pm2', 'tutorial', 'ubuntu', 'ubuntu 22.04']
+draft: false
+summary: In this article, we will discuss the steps involved in deploying a Node.js application on an Ubuntu 22.04 server using PM2 - a popular production process manager for Node.js applications.
+images: ['/static/images/deploy-nodejs-production-application-on-ubuntu-2204-with-pm2.png']
+layout: PostLayout
+---
+
+Node.js is a popular platform for building server-side applications. With its event-driven architecture and efficient handling of I/O operations, it is an ideal choice for building scalable and high-performance applications. In this article, we will discuss the steps involved in deploying a Node.js application on an Ubuntu 22.04 server using PM2 - a popular production process manager for Node.js applications.
+
+## Prerequisites:
+
+Before we begin, make sure that you have the following prerequisites in place:
+
+- An Ubuntu 22.04 server with root access
+- Node.js installed on the server
+- A Node.js application that you want to deploy
+
+## Step 1: Installing Required Software
+
+Before deploying a Node.js application, we need to install some necessary software on the server. Firstly, we will install Nginx - a popular open-source web server that can act as a reverse proxy for our Node.js application.
+
+```
+sudo apt update
+sudo apt install nginx
+```
+
+## Step 2: Creating a Node.js Application User
+
+For security purposes, it is recommended to run the Node.js application as a non-root user. To create a new user, run the following commands:
+
+```
+sudo adduser nodeuser
+sudo usermod -aG sudo nodeuser
+```
+
+## Step 3: Transferring the Application to the Server
+
+Next, we need to transfer the Node.js application to the server. You can use various methods to transfer the application, including FTP, SCP, or SFTP. In this example, we will use SCP (Secure Copy) to transfer the application to the server.
+
+```
+scp -r <path/to/local/app> nodeuser@<server-ip>:~
+```
+
+## Step 4: Installing Application Dependencies and PM2
+
+After transferring the application, we need to install the necessary dependencies for the application to run, as well as PM2. To do this, navigate to the application directory and run the following commands:
+
+```
+cd <path/to/app>
+npm install
+npm install pm2 -g
+```
+
+## Step 5: Configuring Nginx as a Reverse Proxy
+
+Now that we have installed the required dependencies, we can configure Nginx as a reverse proxy for our Node.js application. To do this, we need to create an Nginx server block configuration file for our application.
+
+```
+sudo nano /etc/nginx/sites-available/nodeapp
+```
+
+Add the following contents to the file:
+
+```
+server {
+    listen 80;
+    server_name example.com;
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+Save the file and exit.
+
+## Step 6: Activating the Nginx Server Block Configuration
+
+To activate the Nginx server block configuration, we need to create a symbolic link from the sites-available directory to the sites-enabled directory.
+
+```
+sudo ln -s /etc/nginx/sites-available/nodeapp /etc/nginx/sites-enabled/
+```
+
+## Step 7: Starting the Node.js Application with PM2
+
+Next, we will start the Node.js application using PM2. PM2 will manage the application's process and make sure it stays up and running even after a server reboot.
+
+```
+pm2 start app.js
+```
+
+Note that we are starting the application as the nodeuser user, not as root.
+
+## Step 8: Saving the PM2 Process List
+
+We can use PM2 to save the list of processes that should be started automatically on server reboots.
+
+```
+pm2 save
+```
+
+## Step 9: Testing the Application
+
+Finally, we can test the application by accessing it in a web browser using the server's IP address or domain name. If everything is set up correctly, you should see the application running in your browser.
+
+```
+http://example.com
+```
+
+## Conclusion:
+
+In this article, we discussed the steps involved in deploying a Node.js application on an Ubuntu 22.04 server using PM2. We covered the installation of required software, transferring the application to the server, configuring Nginx as a reverse proxy, starting the application with PM2, and saving the PM2 process list. By following these steps, you should be able to successfully deploy your Node.js application on an Ubuntu 22.04 server using PM2.
+
+Remember to keep in mind the security and performance considerations while deploying a Node.js application in production, such as monitoring and logging, secure communication, and regular updates and maintenance. Happy coding!
