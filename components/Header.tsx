@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/logo.svg'
@@ -6,8 +9,18 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
 
 const Header = () => {
+  const [currentTheme, setCurrentTheme] = useState('dark')
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    if (theme) {
+      setCurrentTheme(theme)
+    }
+  }, [theme])
+
   return (
     <header className="flex items-center justify-between py-10">
       <div>
@@ -24,17 +37,27 @@ const Header = () => {
               siteMetadata.headerTitle
             )} */}
             <div className="mr-3">
-              {/* {theme === 'dark' || theme === 'system' ? (
-                <Image src={'/static/images/dark-bg-light-text.png'} width={280} height={50} />
+              {currentTheme === 'dark' || currentTheme === 'system' ? (
+                <Image
+                  src={'/static/images/dark-bg-light-text.png'}
+                  width={280}
+                  height={50}
+                  alt={'Muhammad Arslan Aslam'}
+                />
               ) : (
-                <Image src={'/static/images/light-bg-dark-text.png'} width={280} height={50} />
-              )} */}
-              <Image
+                <Image
+                  src={'/static/images/light-bg-dark-text.png'}
+                  width={280}
+                  height={50}
+                  alt={'Muhammad Arslan Aslam'}
+                />
+              )}
+              {/* <Image
                 src={'/static/images/dark-bg-light-text.png'}
                 width={280}
                 height={50}
                 alt="Muhammad Arslan Aslam"
-              />
+              /> */}
             </div>
           </div>
         </Link>
