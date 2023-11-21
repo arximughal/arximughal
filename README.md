@@ -1,3 +1,4 @@
+![Vercel](https://vercelbadge.vercel.app/api/arximughal/arximughal)
 <!--
 **arximughal/arximughal** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
