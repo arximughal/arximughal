@@ -5,7 +5,7 @@ const siteMetadata = {
   description: 'Technical Lead @ Nisum, Lahore',
   language: 'en-us',
   siteUrl: 'https://arslanaslam.me',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteRepo: 'https://github.com/arximughal/arximughal',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
