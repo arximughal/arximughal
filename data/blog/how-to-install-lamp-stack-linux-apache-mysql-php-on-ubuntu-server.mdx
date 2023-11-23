@@ -1,0 +1,42 @@
+---
+title: How to install LAMP stack (Linux, Apache, MySQL, PHP) on Ubuntu Server
+date: '2023-11-23'
+tags: ['Ubuntu', 'LAMP', 'DevOps']
+draft: false
+summary: Learn how to install Apache, MySQL, and PHP on Ubuntu server to host PHP web applications. 
+images: []
+layout: PostLayout
+---
+
+"LAMP" stands for **L**inux, **A**pache, **M**ySQL, and **P**HP/**P**erl/**P**ython (we will be focusing on PHP here), a group of open-source applications that allow you to host your websites on a linux server i.e., Ubuntu, as in this case. Apache serves as your web server, MySQL is your most commonly used database, PHP is your scripting language and Linux is -- well, Linux. You can [read up more on these individual technologies more here](https://en.wikipedia.org/wiki/LAMP_(software_bundle)). 
+
+In order to run a simple static HTML website, you don't need to install MySQL and/or PHP (or other scripting language runtime), you can host those with just Apache installed. But for more complex applications that require a database and a language run-time set up for communicating with the said database, the whole stack needs to be installed and configured properly. 
+
+## Prerequisites
+In order to continue with this tutorial, you need to have a linux server up & running at the very least. You can use any cloud service for that purpose. I personally prefer [DigitalOcean](https://m.do.co/c/405e254a416e) for most of my basic [VPS](https://en.wikipedia.org/wiki/Virtual_private_server) needs and it is easy to set up and work with (if you click on [this link](https://m.do.co/c/405e254a416e) and [register on DigitalOcean](https://m.do.co/c/405e254a416e), you will get $200 free credit to try out their services).
+
+We won't be going in to the nitty gritty details on Linux permissions and firewall management and the likes. Most of the default configuration should be safe enough. So, let's get going then: 
+
+## Step 1 - Install Apache
+We are going to assume that you have a brand new VPS set up, SSH in to your server and execute the following command to update the package manager's cache: 
+```
+sudo apt update
+```
+
+If you execute the above command without a root user, and you are executing the `sudo` command for the first time, you will be prompted to enter your password. Enter your password and hit enter to continue. 
+
+Now, execute the below command to install Apache: 
+```
+sudo apt install apache2
+```
+When prompted to confirm the installation, enter `Y` and hit `Enter` to confirm the installation and wait for the process to finish installing. 
+
+Unless you have modified firewall configuration on your server, you should now have apache installed and serving traffic. Head out to the below mentioned URL and check your installation: 
+```
+http://[YOUR SERVER IP ADDRESS]
+```
+Replace "[YOUR SERVER IP ADDRESS]" with the public IP4 address of your server (continue beyond the image if you don't know the IP address). You should see a page that looks something like this: 
+
+![Default Apache Webpage](/static/images/lamp-stack-ubuntu-server.jpeg "default apache webpage")
+
+### Locate public IP address of your server

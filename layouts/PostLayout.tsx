@@ -97,7 +97,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="tocInlineCustom">
                 <TOCInline toc={toc} asDisclosure={true} />
               </div>
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}d</div>
+              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               {siteMetadata.newsletter?.provider && (
                 <div className="flex items-center justify-center pt-6 pb-7">
                   <NewsletterForm />
