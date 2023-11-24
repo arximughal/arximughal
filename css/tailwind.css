@@ -46,3 +46,7 @@ input:-webkit-autofill:focus {
 .tocInlineCustom div ul li a:hover {
   color: #6366f1;
 }
+
+pre {
+  background: #1e1e3f !important;
+}

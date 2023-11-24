@@ -1,6 +1,6 @@
 ---
-title: How to install LAMP stack (Linux, Apache, MySQL, PHP) on Ubuntu Server
-date: '2023-11-23'
+title: How to install LAMP stack (Linux, Apache, MySQL, PHP) on Ubuntu Server?
+date: '2023-11-24'
 tags: ['Ubuntu', 'LAMP', 'DevOps']
 draft: false
 summary: Learn how to install Apache, MySQL, and PHP on Ubuntu server to host PHP web applications. 
@@ -8,17 +8,17 @@ images: []
 layout: PostLayout
 ---
 
-"LAMP" stands for **L**inux, **A**pache, **M**ySQL, and **P**HP/**P**erl/**P**ython (we will be focusing on PHP here), a group of open-source applications that allow you to host your websites on a linux server i.e., Ubuntu, as in this case. Apache serves as your web server, MySQL is your most commonly used database, PHP is your scripting language and Linux is -- well, Linux. You can [read up more on these individual technologies more here](https://en.wikipedia.org/wiki/LAMP_(software_bundle)). 
+"LAMP" stands for **L**inux, **A**pache, **M**ySQL, and **P**HP/**P**erl/**P**ython (we will be focusing on PHP here), a group of open-source applications that allow you to host your websites on a linux server i.e., Ubuntu, as in this case. Apache serves as your web server, MySQL is your most commonly used database, PHP is your scripting language and Linux is -- well, Linux. You can [read up more on these individual technologies here](https://en.wikipedia.org/wiki/LAMP_(software_bundle)). 
 
-In order to run a simple static HTML website, you don't need to install MySQL and/or PHP (or other scripting language runtime), you can host those with just Apache installed. But for more complex applications that require a database and a language run-time set up for communicating with the said database, the whole stack needs to be installed and configured properly. 
+To run a simple static HTML website, you don't need to install MySQL and/or PHP (or other scripting language runtime), you can host those with just Apache installed. But for more complex applications that require a database and a language run-time set up for communicating with the said database, the whole stack needs to be installed and configured properly. 
 
 ## Prerequisites
-In order to continue with this tutorial, you need to have a linux server up & running at the very least. You can use any cloud service for that purpose. I personally prefer [DigitalOcean](https://m.do.co/c/405e254a416e) for most of my basic [VPS](https://en.wikipedia.org/wiki/Virtual_private_server) needs and it is easy to set up and work with (if you click on [this link](https://m.do.co/c/405e254a416e) and [register on DigitalOcean](https://m.do.co/c/405e254a416e), you will get $200 free credit to try out their services).
+To continue with this tutorial, you need to have a Linux server up & running at the very least. You can use any cloud service for that purpose. I prefer [DigitalOcean](https://m.do.co/c/405e254a416e) for most of my basic [VPS](https://en.wikipedia.org/wiki/Virtual_private_server) needs and it is easy to set up and work with (if you click on [this link](https://m.do.co/c/405e254a416e) and [register on DigitalOcean](https://m.do.co/c/405e254a416e), you will get $200 free credit to try out their services).
 
-We won't be going in to the nitty gritty details on Linux permissions and firewall management and the likes. Most of the default configuration should be safe enough. So, let's get going then: 
+We won't be going into the nitty gritty details on Linux permissions and firewall management and the like. Most of the default configurations should be safe enough. So, let's get going then: 
 
 ## Step 1 - Install Apache
-We are going to assume that you have a brand new VPS set up, SSH in to your server and execute the following command to update the package manager's cache: 
+We are going to assume that you have a brand new VPS set up, SSH into your server and execute the following command to update the package manager's cache: 
 ```
 sudo apt update
 ```
@@ -31,7 +31,7 @@ sudo apt install apache2
 ```
 When prompted to confirm the installation, enter `Y` and hit `Enter` to confirm the installation and wait for the process to finish installing. 
 
-Unless you have modified firewall configuration on your server, you should now have apache installed and serving traffic. Head out to the below mentioned URL and check your installation: 
+Unless you have modified the firewall configuration on your server, you should now have apache installed and serving traffic. Head out to the below-mentioned URL and check your installation: 
 ```
 http://[YOUR SERVER IP ADDRESS]
 ```
@@ -39,4 +39,129 @@ Replace "[YOUR SERVER IP ADDRESS]" with the public IP4 address of your server (c
 
 ![Default Apache Webpage](/static/images/lamp-stack-ubuntu-server.jpeg "default apache webpage")
 
-### Locate public IP address of your server
+### Locate the Public IP Address of your Server
+
+- Find external IP address using `curl`:
+```
+curl https://ipecho.net/plain ; echo
+```
+- Find external IP address using `wget`:
+```
+wget -qO- https://ipecho.net/plain ; echo
+```
+
+Enter the given IP address in the browser URL bar and confirm the apache installation. 
+
+## Step 2 - Install MySQL
+Apache is installed and not we need to install a database management system. MySQL is one of the most popular relational database management systems used with PHP. Let's install MySQL:
+```
+sudo apt install mysql-server
+```
+Enter `Y` and hit `enter`, when prompted. 
+
+### Create a Database
+Let's log in to our MySQL instance and create a database: 
+```
+sudo mysql
+```
+To create a database named "mywordpress", execute the following command:
+```
+create database mywordpress;
+```
+### Create a Database User
+Let's create a user that can access the database. 
+```
+CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'YOUR_SECRET_PASSWORD';
+```
+Replace `YOUR_SECRET_PASSWORD` with a strong password. 
+
+Even though the user has been created, it is yet not able to access and/or modify data on our newly created database. Let's give the user access to our database: 
+```
+GRANT ALL PRIVILEGES ON mywordpress.* TO 'wpuser'@'localhost' WITH GRANT OPTION;
+```
+```
+FLUSH PRIVILEGES;
+```
+Now the newly created `wpuser` has access to read and write data on the database `mywordpress`. 
+
+## Step 3 - Install PHP
+Now that we have installed PHP and MySQL, we need to install PHP. PHP will allow us to run our application code and serve dynamic content. Additionally, we need to install `php-mysql` to help our `PHP` installation communicate with the MySQL server. We will also install `libapache-mod-php` package for Apache to handle PHP files. 
+Run the below command to install the above-mentioned packages: 
+```
+sudo apt install php libapache2-mod-php php-mysql
+```
+Enter `Y` and hit `enter` when prompted for confirmation. Once the installation has been finished, you can confirm the installation by executing the below command: 
+```
+php -v
+```
+Congratulations 🎉 You have successfully installed LAMP stack on your Ubuntu server. Before you host your website, let's create a [virtual host](https://httpd.apache.org/docs/current/vhosts/) to hold configuration for your website.
+
+## Step 4 - Creating a Virtual Host
+You can create apache virtual hosts to hold configuration for hosting your website on the server. Virtual hosts let you host more than one domain as well. Let's set up your virtual host for a domain called `myawesomewebsite.com`. _Replace the `myawesomewebsite.com` with your own domain name._
+
+Apache virtual host configurations are located in the following directory: 
+```
+/etc/apache2/sites-available
+```
+One virtual host is aleady enabled by default when you install apache which serves files located in the `/var/www/html` directory. The enabled virtual host files are located in the directory below:
+```
+/etc/apache2/sites-enabled
+```
+
+We will start by making a directory for our website. Since the default virtual host serves files located in the `/var/www/html` directory, we will create a new directory inside `/var/www` to leave the default directory to serve requests which do not match configuration. 
+
+Create a directory by executing the following command:
+```
+sudo mkdir /var/www/myawesomewebsite
+```
+Let's assign the ownership of the directory to the default apache user `www-data`: 
+```
+sudo chown -R www-data:www-data /var/www/myawesomewebsite
+```
+
+Let's create a new virtual host for our new website:
+```
+sudo nano /etc/apache2/sites-available/myawesomewebsite.com.conf
+```
+
+Add the following configuration to the virtual host file: 
+```
+<VirtualHost *:80>
+    ServerName myawesomewebsite.com
+    ServerAlias www.myawesomewebsite.com
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/myawesomewebsite
+
+    <Directory /var/www/myawesomewebsite>
+      Options Indexes FollowSymLinks
+      AllowOverride All
+      Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+Save the file by pressing `ctrl + x`, then `Y` and `Enter`. Once done, let's enable the configuration:
+
+```
+sudo a2ensite myawesomewebsite.com.conf
+```
+
+You will need to restart the apache server to load the newly enabled configuration: 
+```
+sudo service apache2 restart
+```
+
+Your website is now active and running. You can test your website by creating an `index.html` file in the `/var/www/myawesomewebsite` and visiting `myawesomewebsite.com` in your browser.
+
+## Step 5 - Secure your Web Server (HTTPS Configuration)
+You should always make sure that requests to your web server are secure, by serving requests over HTTPS instead of the default HTTP. In order to install a free SSL certificate for your website, you can use [Let's Encrypt](https://letsencrypt.org/). 
+
+You can use [certbot](https://certbot.eff.org/) to install Let's Encrypt certificate for your website. [certbot](https://certbot.eff.org/) will also handle renewing your SSL certificated automatically, so you won't have to worry about when the SSl expires. 
+
+## Conclusion
+You have successfully set up LAMP stack and hosted your first website on your server. By creating more virtual host blocks, you can host more than one domains on the same server _(one server block per domain name)_. 
+
+Happy hosting ✌️
