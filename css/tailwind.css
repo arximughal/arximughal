@@ -29,3 +29,24 @@ input:-webkit-autofill:focus {
     background-color 600000s 0s,
     color 600000s 0s;
 }
+
+.tocInlineCustom {
+  background: #17153b;
+  padding: 12px;
+}
+
+.tocInlineCustom div ul li {
+  padding: 2px 0 2px 0;
+}
+
+.tocInlineCustom div ul li a {
+  color: white;
+}
+
+.tocInlineCustom div ul li a:hover {
+  color: #6366f1;
+}
+
+pre {
+  background: #1e1e3f !important;
+}
