@@ -11,6 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import TOCInline from 'pliny/ui/TOCInline'
+import { Toc } from 'pliny/mdx-plugins'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -95,6 +96,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="tocInlineCustom">
+                {/* @ts-ignore */}
                 <TOCInline toc={toc} asDisclosure={true} />
               </div>
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
