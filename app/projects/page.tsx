@@ -16,7 +16,7 @@ export default function Projects() {
             Showcase your projects with a hero image (16 x 9)
           </p>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            ↑ above message is for me. I forgot to remove it! 
+            ↑ above message is for me. I forgot to remove it!
           </p>
         </div>
         <div className="container py-12">
