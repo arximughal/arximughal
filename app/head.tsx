@@ -1,4 +1,5 @@
 export default function Head() {
+  console.log('in the head');
   return (
     <>
       <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
