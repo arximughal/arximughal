@@ -22,10 +22,10 @@ const Header = () => {
   }, [theme])
 
   return (
-    <header className="flex items-center justify-between py-10">
+    <header className="flex items-center justify-between py-16">
       <div>
         <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative" style={{ width: '180px' }}>
             {/* <div className="mr-3">
               <Logo />
             </div>
@@ -36,18 +36,18 @@ const Header = () => {
             ) : (
               siteMetadata.headerTitle
             )} */}
-            <div className="mr-3">
+            <div className="mr-3 absolute">
               {currentTheme === 'dark' || currentTheme === 'system' ? (
                 <Image
-                  src={'/static/images/dark-bg-light-text.png'}
-                  width={280}
+                  src={'/static/images/logo-transparent.png'}
+                  width={180}
                   height={50}
                   alt={'Muhammad Arslan Aslam'}
                 />
               ) : (
                 <Image
-                  src={'/static/images/light-bg-dark-text.png'}
-                  width={280}
+                  src={'/static/images/logo-transparent.png'}
+                  width={180}
                   height={50}
                   alt={'Muhammad Arslan Aslam'}
                 />
@@ -62,7 +62,7 @@ const Header = () => {
           </div>
         </Link>
       </div>
-      <div className="flex items-center leading-5 space-x-4 sm:space-x-6">
+      <div className="flex items-center justify-start leading-5 space-x-4 sm:space-x-6">
         {headerNavLinks
           .filter((link) => link.href !== '/')
           .map((link) => (
