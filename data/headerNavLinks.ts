@@ -1,7 +1,7 @@
 const headerNavLinks = [
-  { href: '/blog', title: 'Blog' },
+  { href: '/blog', title: 'Banters' },
   { href: '/tags', title: 'Tags' },
-  { href: '/projects', title: 'Projects' },
+  // { href: 'https://arslanaslam.me/projects', title: 'Projects' },
   { href: '/about', title: 'About' },
 ]
 

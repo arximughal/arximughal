@@ -1,12 +1,13 @@
 const siteMetadata = {
-  title: "Muhammad Arslan Aslam's Blog",
+  title: 'Byte-sized Banter - An AI Newsletter',
   author: 'Muhammad Arslan Aslam',
-  headerTitle: 'Muhammad Arslan Aslam',
-  description: 'Technical Lead @ Nisum, Lahore',
+  headerTitle: 'Byte-sized Banter',
+  description:
+    'An AI newsletter focusing on testing and evaluating generative capabilities of LLMs in various scenarios.',
   language: 'en-us',
-  siteUrl: 'https://arslanaslam.me',
+  siteUrl: 'https://bytes.arslanaslam.me',
   siteRepo: 'https://github.com/arximughal/arximughal',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/images/logo-transparent.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'hello@arslanaslam.me',
@@ -18,7 +19,7 @@ const siteMetadata = {
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
-    plausibleDataDomain: 'https://arslanaslam.me', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    plausibleDataDomain: 'https://bytes.arslanaslam.me', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
     googleAnalyticsId: 'G-L2PFY01RMW', // e.g. UA-000000-2 or G-XXXXXXX
   },
