@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Image from '@/components/Image'
+import Link from 'next/link'
 import { Authors, allAuthors } from 'contentlayer/generated'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import HiveLayout from '@/layouts/HiveLayout'
@@ -22,7 +23,7 @@ export default function Page() {
         >
           <Image src={`/static/images/hive-logo.png`} width={148} height={148} alt={`HIVE 2.0`} />
           <h1
-            className={`p-0 m-0 mt-14 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14`}
+            className={`p-0 m-0 mt-10 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14`}
           >
             HIVE 2.0
           </h1>
@@ -31,6 +32,28 @@ export default function Page() {
           >
             Highly Intelligent AI for Practical Problem Solving
           </h3>
+          <Link
+            href={'https://chatgpt.com/g/g-E8ONcOcAH-hive-2-0'}
+            target={`_blank`}
+            className="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            <span className={`text-white`}>Try HIVE 2.0 now</span>
+            <svg
+              className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#ffffff"
+              viewBox="0 0 14 10"
+            >
+              <path
+                stroke="#ffffff"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
+          </Link>
         </div>
         <div className={`p-2`}>
           <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-4 xl:gap-y-4 xl:space-y-0 text-center">
