@@ -5,10 +5,25 @@ import { Authors, allAuthors } from 'contentlayer/generated'
 import HiveLayout from '@/layouts/HiveLayout'
 import { coreContent } from 'pliny/utils/contentlayer'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
+import siteMetadata from '@/data/siteMetadata'
 // import { genPageMetadata } from 'app/seo'
 
 export const metadata: Metadata = {
   title: 'HIVE 2.0 - Highly Intelligent AI for Practical Problem Solving',
+  openGraph: {
+    title: `HIVE 2.0 - Highly Intelligent AI for Practical Problem Solving`,
+    description: `HIVE 2.0: Intelligent AI for problem-solving. Engage with virtual experts to brainstorm, evaluate, and refine solutions. Try HIVE 2.0 for innovative, actionable insights.`,
+    url: 'https://arslanaslam.me/hive',
+    siteName: siteMetadata.title,
+    images: `/static/images/hive-banner-t.png`,
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    title: 'HIVE 2.0 - Highly Intelligent AI for Practical Problem Solving',
+    card: 'summary_large_image',
+    images: `/static/images/hive-banner-t.png`,
+  },
 }
 
 export default function Page() {
