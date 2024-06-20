@@ -33,6 +33,20 @@ export default function Page() {
   return (
     <>
       <HiveLayout content={mainContent}>
+        {/*<div className={`justify-center items-center flex`}>*/}
+        {/*  <a*/}
+        {/*    href="https://www.producthunt.com/posts/hive-2-0-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hive&#0045;2&#0045;0&#0045;2"*/}
+        {/*    target="_blank"*/}
+        {/*  >*/}
+        {/*    <img*/}
+        {/*      src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464417&theme=dark"*/}
+        {/*      alt="HIVE&#0032;2&#0046;0 - Highly&#0032;Intelligent&#0032;AI&#0032;for&#0032;Practical&#0032;Problem&#0032;Solving | Product Hunt"*/}
+        {/*      style={{ width: '250px', height: '54px' }}*/}
+        {/*      width="250"*/}
+        {/*      height="54"*/}
+        {/*    />*/}
+        {/*  </a>*/}
+        {/*</div>*/}
         <div
           className={`p-2 flex content-center w-full items-center justify-center flex-col py-16`}
         >
@@ -47,32 +61,47 @@ export default function Page() {
           >
             Highly Intelligent AI for Practical Problem Solving
           </h3>
-          <Link
-            href={'https://chatgpt.com/g/g-E8ONcOcAH-hive-2-0'}
-            target={`_blank`}
-            className="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            <span className={`text-white`}>Try HIVE 2.0 now</span>
-            <svg
-              className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="#ffffff"
-              viewBox="0 0 14 10"
+          <div className={`flex content-center justify-center items-center align-middle flex-row`}>
+            <Link
+              href={'https://chatgpt.com/g/g-E8ONcOcAH-hive-2-0'}
+              target={`_blank`}
+              className="mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              <path
-                stroke="#ffffff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
+              <span className={`text-white`}>Try HIVE 2.0 now</span>
+              <svg
+                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#ffffff"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="#ffffff"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </Link>
+            <a
+              href="https://www.producthunt.com/posts/hive-2-0-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hive&#0045;2&#0045;0&#0045;2"
+              target="_blank"
+            >
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464417&theme=dark"
+                alt="HIVE&#0032;2&#0046;0 - Highly&#0032;Intelligent&#0032;AI&#0032;for&#0032;Practical&#0032;Problem&#0032;Solving | Product Hunt"
+                style={{ width: '250px', height: '54px' }}
+                width="250"
+                height="54"
               />
-            </svg>
-          </Link>
+            </a>
+          </div>
         </div>
         <div className={`p-2`}>
           <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-4 xl:gap-y-4 xl:space-y-0 text-center">
-            <div className="flex flex-col justify-center max-w-none dark:prose-invert xl:col-span-1 bg-gray-800 p-4 border-gray-500 rounded-xl min-h-[140px]">
+            <div
+              className="flex flex-col justify-center max-w-none dark:prose-invert xl:col-span-1 bg-gray-800 p-4 border-gray-500 rounded-xl min-h-[140px]">
               <h2 className={`text-lg font-bold`}>Collaborative Intelligence</h2>
               <p className={`text-sm mt-2 text-gray-400`}>
                 Engage with a team of virtual personas with diverse expertise to tackle any problem
