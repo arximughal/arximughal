@@ -19,7 +19,7 @@ const siteMetadata = {
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
     // plausibleDataDomain: 'https://arslanaslam.me', // e.g. tailwind-nextjs-starter-blog.vercel.app
-    simpleAnalytics: false, // true or false
+    // simpleAnalytics: false, // true or false
     googleAnalytics: {
       googleAnalyticsId: 'G-L2PFY01RMW', // e.g. UA-000000-2 or G-XXXXXXX
     },
