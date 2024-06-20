@@ -100,8 +100,7 @@ export default function Page() {
         </div>
         <div className={`p-2`}>
           <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-4 xl:gap-y-4 xl:space-y-0 text-center">
-            <div
-              className="flex flex-col justify-center max-w-none dark:prose-invert xl:col-span-1 bg-gray-800 p-4 border-gray-500 rounded-xl min-h-[140px]">
+            <div className="flex flex-col justify-center max-w-none dark:prose-invert xl:col-span-1 bg-gray-800 p-4 border-gray-500 rounded-xl min-h-[140px]">
               <h2 className={`text-lg font-bold`}>Collaborative Intelligence</h2>
               <p className={`text-sm mt-2 text-gray-400`}>
                 Engage with a team of virtual personas with diverse expertise to tackle any problem
