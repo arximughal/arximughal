@@ -5,7 +5,7 @@ const siteMetadata = {
   description:
     'A newsletter by Muhammad Arslan Aslam, focusing on testing and evaluating generative capabilities of LLMs in various scenarios -- and other stuff!',
   language: 'en-us',
-  siteUrl: 'https://bytes.arslanaslam.me',
+  siteUrl: 'https://arslanaslam.me',
   siteRepo: 'https://github.com/arximughal/arximughal',
   siteLogo: '/static/images/logo-transparent.png',
   image: '/static/images/avatar.png',
