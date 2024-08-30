@@ -17,16 +17,28 @@ export default function Home({ posts }) {
               <small>mostly!</small>
             </i>
           </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
-          </p>
+          <div className={'flex flex-row items-center w-full'}>
+            <p className="text-lg leading-7 text-gray-500 dark:text-gray-400 w-9/12">
+              {siteMetadata.description}
+            </p>
+            <div className={'text-right flex flex-row w-3/12 justify-end'}>
+              <Link
+                className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                href={
+                  'https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7202077791310295040'
+                }
+              >
+                Subscribe on LinkedIn
+              </Link>
+            </div>
+          </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags } = post
             return (
-              <li key={slug} className="py-12">
+              <li key={slug} className="py-6">
                 <article>
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
@@ -35,8 +47,8 @@ export default function Home({ posts }) {
                         <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                       </dd>
                     </dl>
-                    <div className="space-y-5 xl:col-span-3">
-                      <div className="space-y-6">
+                    <div className="space-y-2 xl:col-span-3">
+                      <div className="space-y-2">
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
                             <Link
@@ -85,7 +97,7 @@ export default function Home({ posts }) {
         </div>
       )}
       {siteMetadata.newsletter?.provider && (
-        <div className="flex items-center justify-center pt-4">
+        <div className="flex items-center justify-center pt-10">
           <NewsletterForm />
         </div>
       )}

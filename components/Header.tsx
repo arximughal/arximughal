@@ -22,10 +22,10 @@ const Header = () => {
   }, [theme])
 
   return (
-    <header className="flex items-center justify-between py-16">
+    <header className="flex items-center justify-between py-16 relative">
       <div>
         <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="flex items-center justify-between relative" style={{ width: '180px' }}>
+          <div className="flex items-center justify-between absolute" style={{ width: '180px' }}>
             {/* <div className="mr-3">
               <Logo />
             </div>
@@ -40,14 +40,14 @@ const Header = () => {
               {currentTheme === 'dark' || currentTheme === 'system' ? (
                 <Image
                   src={'/static/images/logo-transparent.png'}
-                  width={180}
+                  width={140}
                   height={50}
                   alt={'Muhammad Arslan Aslam'}
                 />
               ) : (
                 <Image
                   src={'/static/images/logo-transparent.png'}
-                  width={180}
+                  width={140}
                   height={50}
                   alt={'Muhammad Arslan Aslam'}
                 />

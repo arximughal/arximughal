@@ -1,9 +1,9 @@
 const siteMetadata = {
-  title: 'Byte-sized Banter - An AI Newsletter',
+  title: 'Byte-sized Banter - by Muhammad Arslan Aslam',
   author: 'Muhammad Arslan Aslam',
   headerTitle: 'Byte-sized Banter',
   description:
-    'An AI newsletter focusing on testing and evaluating generative capabilities of LLMs in various scenarios.',
+    'A newsletter by Muhammad Arslan Aslam, focusing on testing and evaluating generative capabilities of LLMs in various scenarios -- and other stuff!',
   language: 'en-us',
   siteUrl: 'https://bytes.arslanaslam.me',
   siteRepo: 'https://github.com/arximughal/arximughal',

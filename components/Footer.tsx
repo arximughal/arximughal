@@ -1,10 +1,55 @@
+'use client'
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
+import Image from 'next/image'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export default function Footer() {
+  const [currentTheme, setCurrentTheme] = useState('dark')
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    if (theme) {
+      setCurrentTheme(theme)
+    }
+  }, [theme])
+
   return (
     <footer>
+      <div className={'flex flex-row justify-center items-center mt-16'}>
+        <Image
+          src={'/static/images/logo.png'}
+          alt={'Byte-sized Banter by Muhammad Arslan Aslam'}
+          width={200}
+          height={200}
+        />{' '}
+        <span className={'mx-6 text-4xl italic text-gray-400 mt-6'}>by</span>{' '}
+        <div className="ml-8">
+          {currentTheme === 'dark' || currentTheme === 'system' ? (
+            <Image
+              src={'/static/images/dark-bg-light-text.png'}
+              width={500}
+              height={50}
+              alt={'Muhammad Arslan Aslam'}
+            />
+          ) : (
+            <Image
+              src={'/static/images/light-bg-dark-text.png'}
+              width={500}
+              height={50}
+              alt={'Muhammad Arslan Aslam'}
+            />
+          )}
+          {/* <Image
+                src={'/static/images/dark-bg-light-text.png'}
+                width={280}
+                height={50}
+                alt="Muhammad Arslan Aslam"
+              /> */}
+        </div>
+      </div>
       <div className="mt-16 flex flex-col items-center">
         <div className="mb-3 flex space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
