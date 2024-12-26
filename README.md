@@ -26,10 +26,3 @@ You can react out to me at:
 🐦: [@arximughal](https://twitter.com/arximughal) <br />
 ✉️: [hello@arslanaslam.me](mailto:hello@arslanaslam.me) <br />
 📷: [@arximughal](https://instagram.com/arximughal) <br />
-
-<a href="https://github.com/arximughal/github-readme-stats">
-  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=arximughal" />
-</a>
-<a href="https://github.com/arximughal/convoychat">
-  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=arximughal&layout=compact&langs_count=8&card_width=320" />
-</a>
