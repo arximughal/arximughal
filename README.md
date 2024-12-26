@@ -1,4 +1,4 @@
-![Vercel](https://vercelbadge.vercel.app/api/arximughal/arximughal)
+![Vercel](https://vercelbadge.vercel.app/api/arximughal/arximughal) ![](https://komarev.com/ghpvc/?username=arximughal)
 <!--
 **arximughal/arximughal** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
